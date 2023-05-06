@@ -2,6 +2,7 @@
   "name": "test",
   "version": "0.1.0",
   "private": true,
+    "homepage": "https://Valerka4052.github.io/test/",
   "dependencies": {
     "@emotion/styled": "^11.10.8",
     "@reduxjs/toolkit": "^1.9.5",
