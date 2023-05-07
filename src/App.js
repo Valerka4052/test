@@ -1,11 +1,16 @@
-import CardsList from './components/CardsList/CardsList';
-import './App.css';
-import { useGetUsersQuery } from './redux/usersSlice/slice';
+import ErrorPage from 'pages/ErrorPage';
+import TweetsPage from 'pages/TweetsPage';
+import HomePage from 'pages/HomePage';
+import { Route, Routes } from 'react-router-dom';
 
 function App() {
-  const { data } = useGetUsersQuery();
-   return (
-    <CardsList users={data} />
+  return (
+    <Routes>
+      <Route path='/' element={<HomePage />}/>
+        <Route path='/tweets' element={<TweetsPage/>} />
+        <Route path='*' element={<ErrorPage />} />
+      
+    </Routes>
   );
 };
 

@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Button } from './Button.styled'
 import { useChangeFollowersQuantityMutation } from '../../redux/usersSlice/slice';
 import { useDispatch, useSelector } from 'react-redux';
