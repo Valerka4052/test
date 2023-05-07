@@ -6,10 +6,9 @@ import { Route, Routes } from 'react-router-dom';
 function App() {
   return (
     <Routes>
-      <Route path='/' element={<HomePage />}/>
-        <Route path='/tweets' element={<TweetsPage/>} />
-        <Route path='*' element={<ErrorPage />} />
-      
+      <Route path='/' element={<HomePage />} />
+      <Route path='/tweets' element={<TweetsPage />} />
+      <Route path='*' element={<ErrorPage />} />
     </Routes>
   );
 };
