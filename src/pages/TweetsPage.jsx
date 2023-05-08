@@ -6,6 +6,7 @@ import NoTweets from "components/NoTweets/NoTweets";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { useGetUsersQuery } from "redux/usersSlice/slice";
+
 const cardsPerPage = 3;
 
 const TweetsPage = () => {

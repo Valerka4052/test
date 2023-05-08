@@ -16,4 +16,4 @@ const Loader = () => {
         </Container>
     );
 };
-export default Loader
+export default Loader;

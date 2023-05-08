@@ -2,7 +2,6 @@ import styled from '@emotion/styled';
 import { Link as CustomLink } from "react-router-dom"
 
 export const Container = styled.div`
-
 width:100%;
 height:100%;
 padding:30px 0;
@@ -11,11 +10,13 @@ flex-direction:column;
 justify-content:center;
 align-items:center;
 `;
+
 export const HeadTitle = styled.h2`
 font-size:36px;
 font-weight:600;
 line-height:1.21%;
 `;
+
 export const Link = styled(CustomLink)`
 width:196px;
 padding-top:14px;
