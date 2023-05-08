@@ -1,15 +1,17 @@
+import BackLink from "components/BackLink/BackLink";
 import CardsList from "components/CardsList/CardsList";
 import { Dropdown } from "components/DropDownMenu/DropDownMenu";
 import LoadMoreButton from "components/LoadMoreButton/loadMoreButton";
 import Loader from "components/Loader/Loader";
 import NoTweets from "components/NoTweets/NoTweets";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
+import { useLocation } from "react-router-dom";
 import { useGetUsersQuery } from "redux/usersSlice/slice";
 
 const cardsPerPage = 3;
 
-const TweetsPage = () => {
+const TweetsPage = ({navigaton}) => {
   const [page, setPage] = useState(1)
   let { data } = useGetUsersQuery();
   const { followList } = useSelector(state => state);
@@ -19,6 +21,13 @@ const TweetsPage = () => {
     { label: 'following', value: 'following' },
   ];
   const [listOfFollowers, setListOfFollowers] = useState('all');
+
+ const location = useLocation();
+    const [locationState, SetLocationState] = useState(null);
+    const backLinkHref = useRef(location.state?.from ?? "/");
+  useEffect(() => {
+    SetLocationState(backLinkHref.current);
+  }, []);
 
   const handleChange = (event) => {
     setListOfFollowers(event.target.value);
@@ -40,6 +49,7 @@ const TweetsPage = () => {
         value={listOfFollowers}
         onChange={handleChange}
       />
+      <BackLink locationState={locationState} />
       <CardsList users={paginatedUsers} />
       {data.length > 0 ? totalPages !== page && <LoadMoreButton getPage={getPage} /> : <NoTweets listOfFollowers={listOfFollowers} />}
     </>
