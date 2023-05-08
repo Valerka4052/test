@@ -30,7 +30,8 @@ const TweetsPage = () => {
  if (!data) return <Loader />;
   const paginatedUsers = data.slice(0, page * cardsPerPage);
   const getPage = () => setPage(page + 1);
-  const totalPages = data.length / cardsPerPage;
+  const totalPages = Math.ceil(data.length / cardsPerPage);
+
   return (
     <>
       <Dropdown
