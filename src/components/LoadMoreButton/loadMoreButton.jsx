@@ -1,8 +1,9 @@
-
+import { Button, Container } from './LoadMoreButton.styled';
 const LoadMoreButton = ({getPage}) => {
 
     return (
-        <button onClick={()=>getPage(3)}>Load more</button>
+       <Container><Button onClick={()=>getPage()}>Load more</Button></Container>
+        
     );
 };
 export default LoadMoreButton

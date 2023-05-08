@@ -1,14 +1,16 @@
+
+import {Container,Label,Select,Option} from './DropDownMenu.styled'
 export const Dropdown = ({ label, value, options, onChange }) => {
     return (
-        <div>
-            <label>
-                {label}
-                <select value={value} onChange={onChange}>
+        <Container>
+            <Label>
+                {label}   
+                <Select value={value} onChange={onChange}>
                     {options.map((option, idx) => (
-                        <option key={idx} value={option.value}>{option.label}</option>
+                        <Option key={idx} value={option.value}>{option.label}</Option>
                     ))}
-                </select>
-            </label>
-        </div>
+                </Select>
+            </Label>
+        </Container>
     );
 };

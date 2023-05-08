@@ -10,13 +10,15 @@ import { BrowserRouter } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <Provider store={store}>
-        <PersistGate loading={null} persistor={persistor}>
-            <BrowserRouter basename="/test">
-                <App />
-            </BrowserRouter>
-        </PersistGate>
-    </Provider>
+    <React.StrictMode>
+        <Provider store={store}>
+            <PersistGate loading={null} persistor={persistor}>
+                <BrowserRouter basename="/test">
+                    <App />
+                </BrowserRouter>
+            </PersistGate>
+        </Provider>
+    </React.StrictMode>
 );
 
 reportWebVitals();

@@ -1,9 +1,7 @@
-import { Link } from "react-router-dom";
-
-
+import HomeComponent from "components/HomeComponent/HomeComponent";
 const HomePage = () => {
     return (
-    <Link to='/tweets' >go to tweets</Link>
-    )
+        <HomeComponent />
+    );
 };
-export default HomePage
+export default HomePage;

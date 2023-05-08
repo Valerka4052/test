@@ -1,12 +1,12 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-// const usersPerPage = 3;
+
 export const usersApi = createApi({
     reducerPath: 'users',
     baseQuery: fetchBaseQuery({ baseUrl: 'https://64563e0e2e41ccf1691779b2.mockapi.io/api/cards/' }),
     tagTypes: ['users'],
     endpoints: (builder) => ({
         getUsers: builder.query({
-            query: (limit) => `users?page=1&limit=${limit}`,
+            query: () => `users`,
             providesTags: (result,error,page) => result
                 ? [
                     ...result.map(({ id }) => ({ type: 'users', id })),
