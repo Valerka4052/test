@@ -29,7 +29,8 @@ const TweetsPage = () => {
   if (listOfFollowers === 'following') data = data.filter(user => followList.includes(user.id));
  if (!data) return <Loader />;
   const paginatedUsers = data.slice(0, page * cardsPerPage);
-   const getPage = () => setPage(page + 1);
+  const getPage = () => setPage(page + 1);
+  const totalPages = data.length / cardsPerPage;
   return (
     <>
       <Dropdown
@@ -39,9 +40,9 @@ const TweetsPage = () => {
         onChange={handleChange}
       />
       <CardsList users={paginatedUsers} />
-      {data.length > 0 ? data.length - cardsPerPage >= page * cardsPerPage && <LoadMoreButton getPage={getPage} /> : <NoTweets listOfFollowers={listOfFollowers} />}
+      {data.length > 0 ? totalPages !== page && <LoadMoreButton getPage={getPage} /> : <NoTweets listOfFollowers={listOfFollowers} />}
     </>
   );
 };
 
-export default TweetsPage
+export default TweetsPage;
